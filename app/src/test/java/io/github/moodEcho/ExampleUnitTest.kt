@@ -1,4 +1,4 @@
-package io.github.MoodEcho
+package io.github.moodEcho
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package io.github.MoodEcho
+package io.github.moodEcho
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

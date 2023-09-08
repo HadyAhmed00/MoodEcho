@@ -1,4 +1,4 @@
-package io.github.MoodEcho
+package io.github.moodEcho
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
