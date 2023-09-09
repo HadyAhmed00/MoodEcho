@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/audioFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/audioFragment"
@@ -19,4 +19,13 @@
         android:name="io.github.moodEcho.screens.ResultsFragment"
         android:label="fragment_results"
         tools:layout="@layout/fragment_results" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="io.github.moodEcho.screens.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_audioFragment"
+            app:destination="@id/audioFragment" />
+    </fragment>
 </navigation>

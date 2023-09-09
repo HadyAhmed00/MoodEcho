@@ -40,6 +40,7 @@ class AudioFragment : Fragment() {
 //            startActivityForResult(intent, REQUEST_RECORD_AUDIO_PERMISSION)
 
             findNavController().navigate(R.id.action_audioFragment_to_resultsFragment)
+
         }
 
         return binding.root

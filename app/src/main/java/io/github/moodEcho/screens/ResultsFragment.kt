@@ -5,56 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import io.github.moodEcho.R
+import io.github.moodEcho.databinding.FragmentAudioBinding
+import io.github.moodEcho.databinding.FragmentResultsBinding
+import io.noties.markwon.Markwon
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ResultsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ResultsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
+    lateinit var binding: FragmentResultsBinding
+     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_results, container, false)
+        binding = FragmentResultsBinding.inflate(layoutInflater)
+
+
+         binding.backBtn.setOnClickListener{
+             findNavController().navigateUp()
+         }
+
+         val markwon:Markwon = Markwon.create(requireContext())
+
+         markwon.setMarkdown(binding.tipsTitle,"## 10 tips for happy people to be happier:")
+
+         val content = "* Practice gratitude.\n" +
+                 "* Spend time with loved ones.\n" +
+                 "* Give back to others.\n" +
+                 "* Take care of your physical health.\n" +
+                 "* Challenge yourself.\n" +
+                 "* Learn new things.\n" +
+                 "* Spend time in nature.\n" +
+                 "* Meditate or practice mindfulness.\n" +
+                 "* Be optimistic.\n" +
+                 "* Seek help if needed.\n" +
+                 "* Make happiness a priority."
+
+         markwon.setMarkdown(binding.tipsContent,content )
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ResultsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ResultsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

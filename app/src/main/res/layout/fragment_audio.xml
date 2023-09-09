@@ -13,8 +13,8 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="14dp"
             android:src="@drawable/ic_baseline_info_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +41,7 @@
         <TextView
             android:id="@+id/textView2"
             style="@style/normal_text"
+            android:layout_width="wrap_content"
             android:layout_marginTop="18dp"
             android:text="@string/app_name"
             android:textStyle="bold"
@@ -51,7 +52,10 @@
         <TextView
             android:id="@+id/textView3"
             style="@style/normal_text"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/home_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +65,7 @@
             android:id="@+id/audioSelectBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ellipse_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
