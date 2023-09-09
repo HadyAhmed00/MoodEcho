@@ -18,7 +18,11 @@
         android:id="@+id/resultsFragment"
         android:name="io.github.moodEcho.screens.ResultsFragment"
         android:label="fragment_results"
-        tools:layout="@layout/fragment_results" />
+        tools:layout="@layout/fragment_results" >
+        <argument
+            android:name="cat"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="io.github.moodEcho.screens.SplashFragment"

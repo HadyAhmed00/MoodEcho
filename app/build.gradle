@@ -55,6 +55,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
 
+    // csv reader
+    implementation 'org.apache.commons:commons-csv:1.5'
+
 
 
 

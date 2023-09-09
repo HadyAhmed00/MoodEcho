@@ -11,8 +11,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import io.github.moodEcho.ServerHandler.ApiClient
 import io.github.moodEcho.databinding.FragmentAudioBinding
+import org.json.JSONException
+
+import org.json.JSONObject
+
+
+
 class AudioFragment : Fragment() {
 
     lateinit var binding: FragmentAudioBinding
@@ -62,6 +69,17 @@ class AudioFragment : Fragment() {
                         if (success) {
                             // Handle the successful response
                             Log.i(TAG, "Server response: $response")
+                            var message =""
+                            try {
+                                val responseJSON = response?.let { JSONObject(it) }
+                                message = responseJSON?.getString("voice class").toString()
+                            } catch (e: JSONException) {
+                                e.printStackTrace()
+                            }
+                            Log.i(TAG, "onActivityResult: $message")
+                            val action = AudioFragmentDirections.actionAudioFragmentToResultsFragment(message)
+                            findNavController().navigate(action)
+//                            findNavController().navigate(R.id.action_audioFragment_to_resultsFragment)
                             println("Server response: $response")
                         } else {
                             // Handle the error
