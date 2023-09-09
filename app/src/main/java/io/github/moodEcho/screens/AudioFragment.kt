@@ -4,12 +4,14 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import io.github.moodEcho.ServerHandler.ApiClient
 import io.github.moodEcho.databinding.FragmentAudioBinding
 class AudioFragment : Fragment() {
 
@@ -51,10 +53,21 @@ class AudioFragment : Fragment() {
                 val inputStream = requireContext().contentResolver.openInputStream(soundUri)
 
                 if (inputStream != null) {
+
+                    val apiClient = ApiClient()
+
                     val soundByteArray = inputStream.readBytes()
-                    // Handle the soundByteArray as needed (e.g., upload to a server)
-                    // ...
-                  
+
+                    apiClient.uploadWavFile(soundByteArray) { success, response ->
+                        if (success) {
+                            // Handle the successful response
+                            Log.i(TAG, "Server response: $response")
+                            println("Server response: $response")
+                        } else {
+                            // Handle the error
+                            Log.i(TAG, "Error: $response")
+                        }
+                    }
                     Toast.makeText(requireContext(), "Done we read the sound !!", Toast.LENGTH_SHORT).show()
 
                     inputStream.close()

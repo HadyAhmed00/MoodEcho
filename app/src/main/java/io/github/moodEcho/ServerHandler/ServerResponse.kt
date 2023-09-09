@@ -13,7 +13,7 @@ import retrofit2.http.POST
 import retrofit2.http.Part
 var TAG = "RESPON1"
 class ApiClient {
-    private val BASE_URL = "https://ourlegitimateadmin.haniasu.repl.co/Check" // Replace with your server's URL
+    private val BASE_URL = "https://ourlegitimateadmin.haniasu.repl.co/" // Replace with your server's URL
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -31,9 +31,9 @@ class ApiClient {
 
     // Function to upload a .wav file to the server
     fun uploadWavFile(wavFileByteArray: ByteArray, callback: (Boolean, String?) -> Unit) {
-        Log.i(TAG, "uploadWavFile: start uplode")
+        Log.i(TAG, "uploadWavFile: start up lode")
         val requestBody = RequestBody.create(MediaType.parse("audio/wav"), wavFileByteArray)
-        val filePart = MultipartBody.Part.createFormData("file", "audio.wav", requestBody)
+        val filePart = MultipartBody.Part.createFormData("voice_message", "voice_message.wav", requestBody)
 
         val call = apiService.uploadWavFile(filePart)
         call.enqueue(object : Callback<ResponseBody> {
