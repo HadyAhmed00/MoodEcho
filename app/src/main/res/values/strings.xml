@@ -4,4 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome Back !</string>
     <string name="home_text">Record your feelings here\nLet\'s detect your mood Together,\nwe\'ll work on making it better!</string>
+    <string name="res_moreLike">"You More Likely "</string>
+    <string name="res_now">Now!!</string>
+    <string name="res_stat_placeholeder">Happy</string>
+    <string name="tips_title">Tips to Be Better</string>
+    <string name="title_placHolder">10 tips for happy people to be happier:</string>
+    <string name="tips_contant_placeholder">Practice gratitude.\nSpend time with loved ones.\nGive back to others.\nTake care of your physical health.\nChallenge yourself.\nLearn new things.\nSpend time in nature.\nMeditate or practice mindfulness.\nBe optimistic.\nSeek help if needed.\nMake happiness a priority.</string>
 </resources>

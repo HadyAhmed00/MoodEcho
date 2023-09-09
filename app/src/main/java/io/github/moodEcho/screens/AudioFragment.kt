@@ -11,7 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import io.github.moodEcho.R
 import io.github.moodEcho.databinding.FragmentAudioBinding
 
 class AudioFragment : Fragment() {
@@ -33,9 +35,11 @@ class AudioFragment : Fragment() {
         binding = FragmentAudioBinding.inflate(layoutInflater)
 
         binding.audioSelectBtn.setOnClickListener{
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "audio/*" // Limit the selection to audio files
-            startActivityForResult(intent, REQUEST_RECORD_AUDIO_PERMISSION)
+//            val intent = Intent(Intent.ACTION_GET_CONTENT)
+//            intent.type = "audio/*" // Limit the selection to audio files
+//            startActivityForResult(intent, REQUEST_RECORD_AUDIO_PERMISSION)
+
+            findNavController().navigate(R.id.action_audioFragment_to_resultsFragment)
         }
 
         return binding.root
